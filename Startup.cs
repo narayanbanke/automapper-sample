@@ -5,7 +5,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using System;
-
+using Microsoft.EntityFrameworkCore;
 namespace automapper_sample
 {
     public class Startup
@@ -20,7 +20,9 @@ namespace automapper_sample
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddMvc();
             services.AddControllers();
+            services.AddDbContext<ApplicationDBContext>(options => options.UseSqlServer(Configuration["ConnectionStrings:DefaultConnection"]));
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
         }
 
