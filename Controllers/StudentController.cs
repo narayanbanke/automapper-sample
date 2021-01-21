@@ -10,7 +10,7 @@ namespace automapper_sample.Controllers
     {
         private ApplicationDBContext _studentDTO;
         private readonly IMapper _mapper;
-        List<Student> Student = new List<Student>();
+        List<Student> StudentList  = new List<Student>();
         public StudentController(IMapper mapper, ApplicationDBContext studentDTO)
         {  
             _mapper = mapper;
@@ -52,10 +52,10 @@ namespace automapper_sample.Controllers
             //};
           //  _mapper.Map<Student>(studentDTO);
             foreach (var a in      _studentDTO.StudentDTO)
-                Student.Add(_mapper.Map<Student>(a));
+                StudentList.Add(_mapper.Map<Student>(a));
 
          //   Student.Add(_mapper.Map<Student>(studentDTO));
-            return View(Student);
+            return View(StudentList);
         }
 
 

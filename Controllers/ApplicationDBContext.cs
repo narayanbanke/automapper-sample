@@ -14,6 +14,6 @@ namespace   automapper_sample
 
         public DbSet<StudentDTO> StudentDTO { get; set; }
        
-        
+         
     }
 }
